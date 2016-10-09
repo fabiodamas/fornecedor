@@ -78,4 +78,21 @@ public class ProdutoWeb {
 			throw new Exception("Falha na autenticação");
 		}
 	}
+	
+	@WebMethod
+	public boolean efetuarPedido (String cnpjCpf,  List <Produto> produtos){
+		// Consumo Grupo Governo
+		
+		
+		// Consumo Grupo Financeira
+		
+		
+		// Consumo Grupo Transportadora
+		
+		
+		//Se o resultado das três chamadas acima forem verdadeiras, retornaremos true
+		
+		return true;		 
+	}
+	
 }
