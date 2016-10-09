@@ -40,10 +40,10 @@ public class FornecedorWeb {
 		produtos.add(c);
 		
 		Produto d = new Produto();
-		c.setCodigo(4);
-		c.setDescricao("Bermuda Generica Vermelha G");
-		c.setValor(20.5);
-		produtos.add(c);
+		d.setCodigo(4);
+		d.setDescricao("Bermuda Generica Vermelha G");
+		d.setValor(20.5);
+		produtos.add(d);
 		
 		
 	}	
@@ -65,21 +65,30 @@ public class FornecedorWeb {
 			throw new Exception("Falha na autenticação");
 		}
 	}
+
 	
 	@WebMethod
-	public boolean efetuarPedido (String cnpjCpf,  List <Produto> produtos){
-		// Consumo Grupo Governo
-		
-		
-		// Consumo Grupo Financeira
-		
-		
-		// Consumo Grupo Transportadora
-		
-		
-		//Se o resultado das três chamadas acima forem verdadeiras, retornaremos true
-		
-		return true;		 
-	}
+	public boolean efetuarPedido(
+			@WebParam(name="Username", header=true) String usuario,
+			@WebParam(name="Password", header=true) String senha,
+			String cnpjCpf,  List <Produto> produtos) throws Exception {
+		if (autenticado(usuario,senha)){
+			// Consumo Grupo Governo
+			
+			
+			// Consumo Grupo Financeira
+			
+			
+			// Consumo Grupo Transportadora
+			
+			
+			//Se o resultado das três chamadas acima forem verdadeiras, retornaremos true
+			
+			return true;		 
+		} else{
+			throw new Exception("Falha na autenticação");
+		}
+	}		
+	
 	
 }
