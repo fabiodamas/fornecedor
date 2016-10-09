@@ -1,4 +1,4 @@
-package com.fiap.exemplos.ws;
+package com.fiap.trabalho.ws;
 
 public class Produto{
 	private int codigo;

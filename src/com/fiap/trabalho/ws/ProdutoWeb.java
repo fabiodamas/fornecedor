@@ -1,4 +1,4 @@
-package com.fiap.exemplos.ws;
+package com.fiap.trabalho.ws;
 
 import java.util.ArrayList;
 import java.util.List;
