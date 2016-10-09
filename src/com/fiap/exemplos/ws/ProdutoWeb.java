@@ -39,6 +39,13 @@ public class ProdutoWeb {
 		c.setValor(30.5);
 		produtos.add(c);
 		
+		Produto d = new Produto();
+		c.setCodigo(4);
+		c.setDescricao("Bermuda Generica Vermelha G");
+		c.setValor(20.5);
+		produtos.add(c);
+		
+		
 	}	
 	
 	
