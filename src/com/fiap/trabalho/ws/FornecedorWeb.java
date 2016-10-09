@@ -11,7 +11,7 @@ import javax.xml.ws.WebServiceContext;
 
 
 @WebService
-public class ProdutoWeb {
+public class FornecedorWeb {
 
 	static private List<Produto> produtos;
 	
@@ -56,20 +56,7 @@ public class ProdutoWeb {
 	}
 
 	@WebMethod
-	public String novo(@WebParam(name="produto", header=false) Produto a,
-			@WebParam(name="Username", header=true) String usuario,
-			@WebParam(name="Password", header=true) String senha		
-			) {
-		if (autenticado(usuario,senha)){
-			produtos.add(a);
-			return "Produto cadastrado com sucesso";
-		}else{
-			return "Falha na autenticação";
-		}
-	}
-
-	@WebMethod
-	public List<Produto> listar(
+	public List<Produto> listarProdutos(
 			@WebParam(name="Username", header=true) String usuario,
 			@WebParam(name="Password", header=true) String senha) throws Exception {
 		if (autenticado(usuario,senha)){
