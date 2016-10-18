@@ -50,7 +50,7 @@ public class FornecedorWeb {
 
 	@SuppressWarnings("unchecked")
 	@WebMethod(exclude = true)
-	public boolean autenticado() {
+	public boolean autenticado(String Tipo) {
 		MessageContext mctx = wsctx.getMessageContext();
 
 		@SuppressWarnings("rawtypes")
@@ -71,17 +71,21 @@ public class FornecedorWeb {
 			senha = senhas.get(0);
 
 		}
+		
 
-		if (usuario.equals("loja") && senha.equals("123")) {
+		if (Tipo.equals("listarProdutos")   && usuario.equals("listar") && senha.equals("123")) {
 			return true;
-		} else {
+		} else if (Tipo.equals("efetuarPedido")  && usuario.equals("efetuar") && senha.equals("456")) {
+			return true;
+		}
+		else {
 			return false;
 		}
 	}
 
 	@WebMethod
 	public List<Produto> listarProdutos() throws Exception {
-		if (autenticado()) {
+		if (autenticado("listarProdutos")) {
 			return produtos;
 		} else {
 			throw new Exception("Falha na autenticação");
@@ -91,7 +95,7 @@ public class FornecedorWeb {
 	@WebMethod
 	public boolean efetuarPedido(@WebParam(name="cnpjCpf", header=false) String cnpjCpf, 
 			@WebParam(name="produtos", header=false) List<Produto> produtos) throws Exception {
-		if (autenticado()) {
+		if (autenticado("efetuarPedido")) {
 			// Consumo Grupo Governo
 
 			// Consumo Grupo Financeira
